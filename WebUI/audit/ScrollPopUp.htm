@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<HTML>
+	<HEAD>
+		<title>BEX - Meeting</title>
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+		<LINK href="../library/styles/Styles.css" type="text/css" rel="stylesheet">
+	</HEAD>
+	<BODY MS_POSITIONING="GridLayout" onload="fnLoadFrame();" leftMargin="0" topMargin="0" style="LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 100%" marginwidth="0" marginheight="0">
+		<table style="WIDTH: 100%;POSITION: absolute; HEIGHT: 100%" border="0" ID="Table1">
+			<tr>
+				<td width="100%" height="100%">
+					<IFRAME id="iFrmPopup" class="PopIframe" scrolling="yes" style="Topmargin:0;leftmargin:0;WIDTH:100%; HEIGHT: 100%" frameborder="no" marginheight="0" marginwidth="0">
+					</IFRAME><input Id="txtKeyField" type="text" style="DISPLAY: none; VISIBILITY: hidden" NAME="txtKeyField">
+				</td>
+			</tr>
+		</table>
+	</BODY>
+</HTML>
+<SCRIPT>
+	var oWinObject = window.dialogArguments;
+	var KeyField   = oWinObject.KeyField;	
+	var OperMode   = oWinObject.OperMode;	
+	var sSrcScreen =oWinObject.srcScreen;
+	sSrcScreen = oWinObject.srcScreen + "?KeyField="+KeyField;
+	sSrcScreen = sSrcScreen + "&Mode="+OperMode;
+	var sTitle = oWinObject.sTitle;
+	document.title=sTitle;
+	
+	function fnLoadFrame()
+	{
+		document.all("txtKeyField").value = KeyField;
+		document.all("iFrmPopup").src=sSrcScreen;
+	}
+</SCRIPT>
